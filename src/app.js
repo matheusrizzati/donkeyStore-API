@@ -19,6 +19,10 @@ const StoreRoute = require('./Store/Store.route')
 app.use('/auth', AuthRoute)
 app.use('/store', StoreRoute)
 
+app.get('/', (req, res) => {
+    res.send("Hello Word!")
+})
+
 //conecting
 dbUser = process.env.DBUSER
 dbPass = process.env.DBPASS
