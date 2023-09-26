@@ -20,7 +20,7 @@ app.use('/auth', AuthRoute)
 app.use('/store', StoreRoute)
 
 app.get('/', (req, res) => {
-    res.send("Hello Word!")
+    res.send("Hello Word! Testing deploy")
 })
 
 //conecting
