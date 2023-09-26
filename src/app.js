@@ -33,3 +33,5 @@ mongoose.connect(`mongodb+srv://${dbUser}:${dbPass}@cluster0.rhec6zw.mongodb.net
         app.listen(PORT, () => { console.log('server runing in port ' +PORT)})
     }
 )
+
+module.exports = app
