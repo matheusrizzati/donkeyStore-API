@@ -3,7 +3,6 @@ const Store = require('./Store.model')
 async function createStore(req, res){
     const ownerId = req.id
     const {storeName} = req.body
-
     if (!storeName){
         return res.json({msg:"Preencha todos os dados"})
     }

@@ -2,8 +2,14 @@ const User = require('./User.model')
 
 async function createUser(req, res){
     const {username, password, confirmPassword} = req.body
+    console.log(username,password,confirmPassword)
     if (!username || !password || !confirmPassword){
         return res.json({msg: "Preencha todos os campos"})
+    }
+
+    const exists = await User.findOne({username})
+    if(exists){
+        return res.json({msg: "Já existe uma conta cadastrada com esse username"})
     }
 
     if (password !== confirmPassword){
