@@ -7,10 +7,10 @@ const mongoose = require("mongoose")
 const User = new mongoose.Schema({
     username: String,
     password: String,
-    stores: [{
-      type: String,
-      default: ''
-    }]
+    layouts: {
+      type: [String],
+      default: ['basic', 'teste', 'clean']
+    }
     // stores: [storeSchema],
 })
 

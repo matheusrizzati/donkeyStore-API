@@ -2,14 +2,22 @@ const Store = require('./Store.model')
 
 async function createStore(req, res){
     const ownerId = req.id
-    const {storeName} = req.body
-    if (!storeName){
+    const {storeName, url} = req.body
+    if (!storeName || !url){
         return res.json({msg:"Preencha todos os dados"})
+    }
+
+    const replacedUrl = url.replace(' ', '-')
+    const exist = await Store.findOne({url: replacedUrl})
+    if(exist){
+        return res.json({msg:"Essa URL ja está em uso"})
     }
 
     const store = new Store({
         storeName,
-        ownerId
+        url: replacedUrl,
+        ownerId,
+        layout: 'basic'
     })
 
     try{

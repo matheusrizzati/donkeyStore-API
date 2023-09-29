@@ -13,10 +13,10 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
-const AuthRoute = require('./Auth/Auth.route')
+const UserRoute = require('./User/User.route')
 const StoreRoute = require('./Store/Store.route')
 
-app.use('/auth', AuthRoute)
+app.use('/user', UserRoute)
 app.use('/store', StoreRoute)
 
 app.get('/', (req, res) => {
