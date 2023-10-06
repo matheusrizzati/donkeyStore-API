@@ -15,9 +15,15 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 const UserRoute = require('./User/User.route')
 const StoreRoute = require('./Store/Store.route')
+const ProductRoute = require('./Product/Product.route')
+const CategoryRoute = require('./Category/Category.route')
+const CupomRoute = require('./Cupom/Cupom.route')
 
 app.use('/user', UserRoute)
 app.use('/store', StoreRoute)
+app.use('/product', ProductRoute)
+app.use('/category', CategoryRoute)
+app.use('/cupom', CupomRoute)
 
 app.get('/', (req, res) => {
     res.send("Hello Word! Testing deploy")
