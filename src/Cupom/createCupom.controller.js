@@ -2,6 +2,7 @@ const Cupom = require('./Cupom.model')
 
 async function createCupom(req, res){
     let {name, percentage, isInteger, integerValue, storeId} = req.body
+    console.log(req.body)
     if(!name){
         return res.json({msg:"Preencha todos os dados"})
     }

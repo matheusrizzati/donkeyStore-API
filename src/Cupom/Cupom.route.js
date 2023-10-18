@@ -10,8 +10,8 @@ const updateCupom = require('./updateCupom.controller')
 const deleteCupom = require('./deleteCupom.controller')
 
 router.post('/', checkToken, createCupom)
-router.get('/', checkToken, getCupoms)
-router.get('/:id', checkToken, getOneCupom)
+router.get('/', getCupoms)
+router.get('/:id', getOneCupom)
 router.put('/:id', checkToken, updateCupom)
 router.delete('/:id', checkToken, deleteCupom)
 

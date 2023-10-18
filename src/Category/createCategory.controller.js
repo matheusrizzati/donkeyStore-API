@@ -3,7 +3,7 @@ const Category = require('./Category.model')
 async function createCategory(req, res){
     const {name, storeId} = req.body
     if(!name){
-        res.json({msg:"Preencha todos os dados"})
+        return res.json({msg:"Preencha todos os dados"})
     }
     const category = new Category({ 
         name, storeId
@@ -11,10 +11,10 @@ async function createCategory(req, res){
 
     try{
         await category.save()
-        res.json({"msg":"Categoria criado com sucesso", category})
+        return res.json({"msg":"Categoria criado com sucesso", category})
     }catch(err){
         console.log(err)
-        res.json({"msg":"Ocorreu um erro"})
+        return res.json({"msg":"Ocorreu um erro"})
     }
 }
 

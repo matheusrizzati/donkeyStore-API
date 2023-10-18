@@ -10,8 +10,8 @@ const updateProduct = require('./updateProduct.controller')
 const deleteProduct = require('./deleteProduct.controller')
 
 router.post('/', checkToken, createProduct)
-router.get('/', checkToken, getProducts)
-router.get('/:id', checkToken, getOneProduct)
+router.get('/', getProducts)
+router.get('/:id', getOneProduct)
 router.put('/:id', checkToken, updateProduct)
 router.delete('/:id', checkToken, deleteProduct)
 

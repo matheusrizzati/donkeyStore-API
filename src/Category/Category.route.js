@@ -8,7 +8,7 @@ const getCategorys = require('./getCategorys.controller')
 const deleteCategory = require('./deleteCategory.controller')
 
 router.post('/', checkToken, createCategory)
-router.get('/', checkToken, getCategorys)
+router.get('/', getCategorys)
 router.delete('/:id', checkToken, deleteCategory)
 
 module.exports = router

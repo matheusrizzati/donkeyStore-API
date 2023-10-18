@@ -17,7 +17,9 @@ async function createStore(req, res){
         storeName,
         url: replacedUrl,
         ownerId,
-        layout: 'basic'
+        layout: 'basicLight',
+        isActive: false,
+        paymentConfig:''
     })
 
     try{

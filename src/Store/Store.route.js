@@ -12,7 +12,7 @@ const getStoreByUrl = require('./getStoreByUrl.controller')
 
 router.post('/', checkToken, createStore)
 router.get('/', checkToken, listMyStores)
-router.get('/:id', checkToken, getOneStore)
+router.get('/:id', getOneStore)
 router.put('/:id', checkToken, updateStore)
 router.get('/url/:url', getStoreByUrl)
 
