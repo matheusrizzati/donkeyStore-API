@@ -1,8 +1,7 @@
 const mongoose = require("mongoose")
+// const aws = require('aws-sdk')
 
-// const storeSchema = new mongoose.Schema({
-//   storeId: { type: mongoose.Schema.Types.ObjectId, ref: 'Store' },
-// })
+// const s3 = new aws.S3()
 
 const Product = new mongoose.Schema({
     name: String,
@@ -11,7 +10,14 @@ const Product = new mongoose.Schema({
     quantity: Number,
     category: String,
     isActive: Boolean,
+    image: String,
     storeId: String,
 })
 
+Product.pre('remove', function() {
+    return s3.deleteObject({
+        Bucket: 'donkeystore',
+        Key: this.image
+    }).promisse()
+})
 module.exports = mongoose.model('Product', Product)
